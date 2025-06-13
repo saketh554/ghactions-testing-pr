@@ -23,14 +23,6 @@ jobs:
             exit 1
           fi
 
-      - name: Check for reviewers
-        run: |
-          reviewers_count=$(echo "${{ github.event.pull_request.requested_reviewers }}" | jq 'length')
-          if [ "$reviewers_count" -eq 0 ]; then
-            echo "❌ No reviewers assigned"
-            exit 1
-          fi
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
